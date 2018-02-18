@@ -1,0 +1,49 @@
+
+
+<sly data-sly-test="${properties.headline == null}">
+    <h2>Component must be configured</h2>
+</sly>
+
+
+<sly data-sly-test="${properties.behaviour == 'dynamic' }">
+    <sly data-sly-use.model="com.epam.aem.training.models.TestModel"></sly>
+    <div class="headline">${properties.headline}</div>
+    <div class="tile">
+        <sly data-sly-list.page="${model.articles}">
+            <a href="${page.path}"  data-sly-test="${pageList.first}"><div class="rootPage">
+                <div class="rootPageImage"><img src="${page.imageLink}" alt="Page Image"></div>
+                <div class="rootPageTitle">${page.title}</div>
+                <div class="rootPageDescription"><p>${page.text}</p></div>
+            </div></a>
+        </sly>
+        <div class="childs">
+            <sly data-sly-list.page="${model.articles}">
+                <div class="childPage" data-sly-test="${!pageList.first}"><a href="${page.path}">${page.title}</a></div>
+            </sly>
+        </div>
+    </div>
+</sly>
+<sly data-sly-test="${properties.behaviour == 'static' }">
+    <sly data-sly-use.model="com.epam.aem.training.models.TestModel"/>
+    <div class="headline">${properties.headline}</div>
+    <div class="staticContent">
+        <sly data-sly-list.page="${model.articles}">
+            <a href="${page.path}"><div class="staticItem">
+                <div class="staticItemImage"><img src="${page.imageLink}" alt="Page Image"></div>
+                <div class="staticItemTitle">${page.title}</div>
+                <div class="staticItemDescription"><p>${page.text}</p></div>
+            </div></a>
+        </sly>
+
+    <div class="showButton" onclick="alert('Click!')"><p>show more</p></div>
+
+    </div>
+</sly>
+
+
+
+
+
+
+
+

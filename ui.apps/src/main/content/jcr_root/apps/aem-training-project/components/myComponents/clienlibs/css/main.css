@@ -1,0 +1,182 @@
+.headline {
+    background: #39c2d7;
+    height: 35px;
+    padding-top : 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color : #ffffff;
+}
+
+h2 {
+    color: #e1e3e8;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+}
+
+body {
+    background: #dedede;
+}
+
+.articlesDisplay {
+
+    padding-bottom : 15px;
+
+}
+
+.tile {
+    display: flex;
+    flex-direction: row;
+    margin-left : 15px;
+    margin-top : 15px;
+}
+
+.childs {
+    margin-left: 15px;
+}
+
+.childPage {
+    height: 30px;
+    width: 225px;
+    background: #39c2d7;
+    padding-top: 14px;
+    margin-bottom: 2px;
+}
+
+.childPage:hover {
+    background: #2b96a7;
+}
+
+.childPage a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    text-transform: uppercase;
+    margin-left: 15px;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.rootPage {
+    width : 250px;
+        height : 345px;
+        background : #ffffff;
+}
+
+.rootPageImage {
+    width: 250px
+}
+
+.rootPageImage img {
+    width: 240px;
+    margin-left : 5px;
+    margin-top:5px;
+}
+
+.rootPageTitle {
+        margin-left : 5px;
+            margin-top : 15px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+        text-align : center;
+        color : grey;
+}
+
+.rootPageTitle a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 15px;
+}
+
+.rootPageDescription {
+    width: 235px;
+}
+
+.rootPageDescription p {
+    margin-left: 5px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    font-size:12px;
+    color : black;
+}
+
+.staticContent {
+    display : flex;
+        flex-direction : row;
+        flex-wrap : wrap;
+
+}
+
+    .staticItem {
+    width : 260px;
+            height: 345px;
+    background : #ffffff;
+    margin-left : 15px;
+    margin-top : 15px;
+}
+
+
+a .staticItem:hover {
+box-shadow: 0 0 1px 2px #39c2d7;
+}
+
+a .rootPage:hover {
+box-shadow: 0 0 1px 2px #39c2d7;
+}
+
+
+        .staticItemImage img {
+        margin-top : 5px;
+        margin-left : 5px;
+        width : 250px;
+    }
+
+.staticItemTitle {
+    margin-left : 5px;
+    margin-top:15px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+        text-align : center;
+        color : grey;
+}
+
+    .staticItemDescription p {
+    margin-left : 5px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: light;
+            font-size : 12px;
+    color : black;
+}
+
+
+
+
+        .showButton {
+    width : 250px;
+            height : 55px;
+            background : #39c2d7;
+            text-align : center;
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                color : #ffffff;
+    text-transform: uppercase;
+                margin-left : 15px;
+                align-self : center;
+            }
+            .showButton p {
+            margin-top : 20px;
+        }
+        .showButton:hover {
+        background: #2b96a7;} 
+
+
+
+
+

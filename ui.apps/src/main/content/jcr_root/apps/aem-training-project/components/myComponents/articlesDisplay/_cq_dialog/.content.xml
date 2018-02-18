@@ -1,42 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0">
-    <content>
-        <layout/>
-        <items>
-            <general>
-                <layout/>
-                <items>
-                    <column>
-                        <items>
-                            <behaviour_radio>
-                                <items>
-                                    <static/>
-                                    <dynamic/>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="SETTINGS"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="en/cq/current/wcm/default_components.html">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <general
+                jcr:primaryType="nt:unstructured"
+                jcr:title="General"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <behaviour_radio
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/foundation/form/radiogroup"
+                                fieldLabel="Behaviour"
+                                name="./behaviour"
+                                required="{Boolean}true"
+                                text="Behaviour : ">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <static
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/foundation/form/radio"
+                                        checked="{Boolean}true"
+                                        name="./behaviour"
+                                        text="Static"
+                                        value="static"/>
+                                    <dynamic
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/foundation/form/radio"
+                                        name="./behaviour"
+                                        text="Dynamic"
+                                        value="dynamic"/>
                                 </items>
                             </behaviour_radio>
-                            <headline/>
-                            <number/>
+                            <headline
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/foundation/form/textfield"
+                                emptyText="Enter Headline"
+                                fieldLabel="HeadLine :"
+                                name="./headline"
+                                required="{Boolean}true"/>
+                            <number
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/foundation/form/numberfield"
+                                defaultValue="1"
+                                fieldLabel="Number of Elements : "
+                                max="{Long}15"
+                                min="{Long}1"
+                                name="./number"
+                                step="{Long}1"/>
                         </items>
                     </column>
                 </items>
             </general>
-            <dynamic>
-                <layout/>
-                <items>
-                    <column>
-                        <items>
-                            <path/>
+            <dynamic
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Dynamic"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <path
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldLabel="Articles path"
+                                name="./dynamicPath"
+                                rootPath="/content/epam-training-project"/>
                         </items>
                     </column>
                 </items>
             </dynamic>
-            <static>
-                <layout/>
-                <items>
-                    <column>
-                        <items>
-                            <multifield>
-                                <field/>
+            <static
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Static"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <multifield
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                fieldLabel="Articles path"
+                                name="./path"
+                                rootPath="/content/epam-training-project">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                    fieldLabel="Articles"
+                                    name="./staticPath"
+                                    rootPath="/content/epam-training-project"/>
                             </multifield>
                         </items>
                     </column>

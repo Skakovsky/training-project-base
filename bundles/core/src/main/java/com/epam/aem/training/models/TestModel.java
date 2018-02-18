@@ -74,9 +74,9 @@ public class TestModel {
     @PostConstruct
     public void init() throws RepositoryException {
         LOGGER.info("========== AEM TestModel @PostConstruct init() ==========");
-        String articleTitle = "default title";
-        String articleImage = "no image";
-        String articleText = "default text";
+        String articleTitle;
+        String articleImage;
+        String articleText;
         articles = new ArrayList<>();
         if (STATIC_BEHAVIOUR.equals(behaviour) && staticPath != null) {
             LOGGER.info("Model configured to static behaviour.");
@@ -88,12 +88,12 @@ public class TestModel {
                         Node node = resourceResolver.getResource(nodePath).getChild(NODE_CONTENT).adaptTo(Node.class);
                         articleTitle = node.getProperty(ARTICLE_TITLE_PROPERTY).getString();
                         articleText = node.getProperty(ARTICLE_TEXT_PROPERTY).getString();
-                        articleImage = node.getNode("image/file/").getPath();
+                        articleImage = node.getNode(ARTICLE_IMAGE_PROPERTY).getPath();
                         articles.add(new Article(articleTitle, articleText, articleImage, Converter.convertToEndPath(nodePath)));
                     }
                 }
             } catch (RepositoryException e) {
-                LOGGER.error("Repository exception...");
+                LOGGER.error("Repository exception : " + e.getMessage());
             }
 
         }
@@ -106,7 +106,6 @@ public class TestModel {
                     Page page = resource.adaptTo(Page.class);
                     articleTitle = page.getTitle();
                     articleText = page.getDescription();
-
                     Resource jcrContent = resource.getChild(NODE_CONTENT);
                     articleImage = jcrContent.getChild(ARTICLE_IMAGE_PROPERTY).getPath();
                     articles.add(new Article(articleTitle, articleText, articleImage, Converter.convertToEndPath(resource.getPath())));
@@ -116,7 +115,7 @@ public class TestModel {
                     articles = articles.subList(0, i);
                 }
             } catch (NullPointerException e) {
-                LOGGER.error("NPE");
+                LOGGER.error("Null pointer exception : " + e.getMessage());
             }
         }
     }
@@ -127,7 +126,7 @@ public class TestModel {
         if (resource.hasChildren()) {
             Iterable<Resource> children = resource.getChildren();
             for (Resource child : children) {
-                if (child.isResourceType("cq:Page")) {
+                if (child.isResourceType(TYPE_CQ_PAGE)) {
                     resources.addAll(getChildCQPages(child));
                 }
             }

@@ -12,4 +12,5 @@ public class Constants {
     public static final String HOST = "localhost:4502";
     public static final String HTTP_PROTOCOL = "http://";
     public static final String HTML_EXTENSION = ".html";
+    public static final String TYPE_CQ_PAGE = "cq:Page";
 }

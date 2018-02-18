@@ -6,7 +6,7 @@
 
 
 <sly data-sly-test="${properties.behaviour == 'dynamic' }">
-    <sly data-sly-use.model="com.epam.aem.training.models.TestModel"></sly>
+    <sly data-sly-use.model="com.epam.aem.training.models.PagesDisplayModel"></sly>
     <div class="headline">${properties.headline}</div>
     <div class="tile">
         <sly data-sly-list.page="${model.articles}">
@@ -24,7 +24,7 @@
     </div>
 </sly>
 <sly data-sly-test="${properties.behaviour == 'static' }">
-    <sly data-sly-use.model="com.epam.aem.training.models.TestModel"/>
+    <sly data-sly-use.model="com.epam.aem.training.models.PagesDisplayModel"/>
     <div class="headline">${properties.headline}</div>
     <div class="staticContent">
         <sly data-sly-list.page="${model.articles}">
@@ -35,7 +35,7 @@
             </div></a>
         </sly>
 
-    <div class="showButton" onclick="alert('Click!')"><p>show more</p></div>
+    <div class="showButton" onclick="alert('Not implemented')"><p>show more</p></div>
 
     </div>
 </sly>

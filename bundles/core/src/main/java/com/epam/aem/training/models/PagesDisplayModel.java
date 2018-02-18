@@ -3,10 +3,8 @@ package com.epam.aem.training.models;
 import com.day.cq.wcm.api.Page;
 import com.epam.aem.training.utils.Converter;
 import com.epam.aem.training.beans.Article;
-import org.apache.jackrabbit.commons.JcrUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.slf4j.Logger;
@@ -22,9 +20,9 @@ import static com.epam.aem.training.beans.Constants.*;
 
 
 @Model(adaptables = Resource.class)
-public class TestModel {
+public class PagesDisplayModel {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestModel.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PagesDisplayModel.class);
 
     @Inject
     private String behaviour;
@@ -73,7 +71,7 @@ public class TestModel {
 
     @PostConstruct
     public void init() throws RepositoryException {
-        LOGGER.info("========== AEM TestModel @PostConstruct init() ==========");
+        LOGGER.info("========== AEM PagesDisplayModel @PostConstruct init() ==========");
         String articleTitle;
         String articleImage;
         String articleText;
@@ -110,13 +108,13 @@ public class TestModel {
                     articleImage = jcrContent.getChild(ARTICLE_IMAGE_PROPERTY).getPath();
                     articles.add(new Article(articleTitle, articleText, articleImage, Converter.convertToEndPath(resource.getPath())));
                 }
-                int i = Integer.parseInt(number);
-                if (articles.size() >= i) {
-                    articles = articles.subList(0, i);
-                }
             } catch (NullPointerException e) {
                 LOGGER.error("Null pointer exception : " + e.getMessage());
             }
+        }
+        int i = Integer.parseInt(number);
+        if (articles.size() >= i) {
+            articles = articles.subList(0, i);
         }
     }
 

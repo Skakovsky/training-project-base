@@ -289,5 +289,6 @@
     <modules>
         <module>bundles/core</module>
         <module>ui.apps</module>
+        <module>content</module>
     </modules>
 </project>
